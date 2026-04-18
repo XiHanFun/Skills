@@ -1,0 +1,46 @@
+---
+name: dotnet-vue-stack-review
+description: >-
+  Structured code review for pull requests touching ASP.NET Core backends and
+  Vue/TypeScript frontends: correctness, security, performance, and contract
+  alignment. Use when reviewing PRs, auditing changes, or before release in a
+  .NET + Vue monorepo or split-repo setup.
+---
+
+# 全栈代码审查（.NET + Vue）
+
+## 通用
+
+- **范围**：变更是否最小化；是否无关格式化/重排；提交信息是否说明意图。
+- **正确性**：边界条件、空值、并发、时区与本地化是否考虑。
+- **可维护性**：命名是否表达意图；重复逻辑是否应提取；魔法数是否常量化。
+
+## 后端审查
+
+- [ ] 鉴权/授权在 **服务端** 生效，不依赖“前端已隐藏”  
+- [ ] 输入校验完整；SQL/NoSQL 查询无注入；文件上传限制类型与大小  
+- [ ] 敏感数据不记录到日志；异常不向前端泄漏堆栈细节（生产）  
+- [ ] 异步使用正确；`ConfigureAwait` 在库代码中按约定  
+- [ ] 破坏性 API 变更是否有版本或迁移说明  
+
+## 前端审查
+
+- [ ] XSS：避免 `v-html` 不可信内容；URL 与富文本消毒策略明确  
+- [ ] 密钥与配置不在前端打包进硬编码秘密；环境变量用途正确  
+- [ ] 列表/大表是否有性能风险（虚拟滚动、按需加载）  
+- [ ] 与 API 的字段、枚举、分页参数 **与后端一致**  
+- [ ] 加载与错误状态完整，避免静默失败  
+
+## 反馈格式（建议）
+
+- **阻塞**：安全、数据损坏、破坏兼容且无迁移  
+- **应改**：明显 bug、违背团队架构边界  
+- **建议**：可读性、小优化、可后续跟进  
+
+## 审查顺序
+
+1. 安全与数据完整性  
+2. API 契约与错误处理  
+3. 业务逻辑正确性  
+4. 性能与可观测性  
+5. 风格与命名（在自动化 format/lint 之后）  
