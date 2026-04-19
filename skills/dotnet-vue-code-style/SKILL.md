@@ -7,6 +7,8 @@ description: >-
 
 # .NET 与 Vue 代码格式（全局约定）
 
+将 `.editorconfig`、Prettier、lint 规则视为单一事实来源。正文只说明执行原则和冲突处理，不重复触发场景。
+
 ## 原则
 
 - 仓库根目录用 `.editorconfig` 统一换行与编码；**后端 C# 与前端 Web 资源缩进不同是常态**，不要强行混用同一套 indent 给两种语言。
@@ -32,9 +34,11 @@ description: >-
 - 同一文件既有 ESLint 又有 Prettier：优先 **eslint-config-prettier** 关闭冲突规则，由 Prettier 管格式。
 - C# 与脚本生成代码：生成物纳入忽略或单独目录，避免全量 format 破坏生成器输出。
 
-## 何时查阅
+## 执行顺序
 
-- 新增子项目、合并多仓库风格、或 CI 报 format 失败时，先对齐上述层级再改业务代码。
+1. 先确认仓库已有的 `.editorconfig`、Prettier、ESLint 配置，不要凭空发明新规则。
+2. 再用对应工具批量修复格式，不要手动制造大面积抖动。
+3. 最后处理剩余的真实风格分歧，并在必要时修改配置而不是只改单个文件。
 
 ## 相关 skill
 

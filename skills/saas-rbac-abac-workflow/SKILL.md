@@ -8,18 +8,7 @@ description: >-
 
 # SaaS 多租户 RBAC + 轻量 ABAC 全流程规范
 
-本技能面向 B2B SaaS 多租户系统，提供从需求到上线的各角色（架构师、DBA、后端、前端、安全、测试、DevOps、PM）规范化交付物模板与检查清单。技术栈基于 ASP.NET Core + Vue 3 + TypeScript，同时保留通用原则。
-
-## 使用时机
-
-出现以下任一信号时，按本技能执行：
-
-- 新建或改造多租户功能（数据、菜单、API）
-- 设计或修改 RBAC 角色、权限、ABAC 策略
-- 审查字段级安全、脱敏、数据范围
-- 规划权限矩阵测试、租户隔离回归
-- 规划灰度发布、租户级配置、回滚
-- 审核或拆分与权限相关的需求
+按“统一权限表达 + 显式租户隔离 + 分角色交付物”的方式推进需求、设计、开发、测试、发布和回滚。正文只保留执行规则、索引和红线，触发条件由 frontmatter 描述承担。
 
 ## 核心原则（所有角色必须遵守）
 
@@ -30,7 +19,15 @@ description: >-
 5. **审计全覆盖**：权限授予/撤销、敏感字段访问、跨租户操作必须审计，且审计日志本身受 RBAC 保护。
 6. **可灰度、可回滚**：权限模型变更、策略调整必须支持按租户灰度，并保留 1 个版本的回滚脚本。
 
-## 权限码命名约定
+## 快速入口
+
+- 只做菜单、按钮、列表接口：读 [backend.md](backend.md) + [frontend.md](frontend.md) + [checklists.md](checklists.md)
+- 新增一个业务模块：按 [architecture.md](architecture.md) → [database.md](database.md) → [backend.md](backend.md) → [frontend.md](frontend.md) → [testing.md](testing.md)
+- 做合规或安全审计：读 [security.md](security.md) + [checklists.md](checklists.md)
+- 准备上线或回滚：读 [devops.md](devops.md) + [checklists.md](checklists.md)
+- 梳理需求或权限矩阵：读 [product.md](product.md)
+
+## 权限码命名
 
 | 段位 | 含义 | 示例 |
 |------|------|------|
@@ -40,7 +37,7 @@ description: >-
 
 派生操作追加第 4 段（可选）：`saas:user:export:sensitive`。
 
-## 数据范围（Data Scope）标准值
+## 数据范围标准值
 
 | 范围 | 说明 |
 |------|------|
@@ -51,9 +48,9 @@ description: >-
 | `Custom` | 自定义组织/部门 ID 集合 |
 | `Global` | 仅平台超管，跨租户 |
 
-## 角色 × 阶段交付物索引
+## 角色与阶段索引
 
-查 **"我是什么角色 + 在哪个阶段"** 即可定位详细规范文件：
+按“角色 + 阶段”定位分册：
 
 | 阶段 \ 角色 | 架构师 | DBA | 后端 | 前端 | 安全 | 测试 | DevOps | PM |
 |-------------|:------:|:---:|:----:|:----:|:----:|:----:|:------:|:--:|
@@ -78,7 +75,7 @@ description: >-
 
 ## 主工作流
 
-对每一个涉及权限/多租户的任务，按下列工作流执行：
+对每一个涉及权限或多租户的任务，按下列顺序推进。任一门禁未通过，不进入下一阶段。
 
 ```
 阶段门禁：
@@ -93,9 +90,7 @@ description: >-
 - [ ] 9. 运营：监控、审计看板、工单入口就位（devops.md + security.md）
 ```
 
-任一门禁未通过，禁止进入下一阶段。
-
-## 多租户隔离模式（供架构师选择）
+## 多租户隔离模式
 
 | 模式 | 适用 | 代价 |
 |------|------|------|
@@ -104,11 +99,11 @@ description: >-
 | 分库（每租户独立库） | 合规/隔离要求高、KA 客户 | 运维成本高、跨租户统计困难 |
 | 混合（平台库 + 租户库） | 大 B2B，平台元数据与业务数据分离 | 连接切换/事务边界复杂 |
 
-**默认推荐**：共享库共享表 + 全局查询过滤器 + `TenantId` 强制索引；对 KA 客户支持按租户切换到独立库。
+默认推荐：共享库共享表 + 全局查询过滤器 + `TenantId` 强制索引。对 KA 客户按需切换到独立库。
 
 ## ABAC 轻量策略表达
 
-采用"声明式属性 + 条件表达式"模式，**不引入重型策略引擎**：
+采用“声明式属性 + 条件表达式”模式，不引入重型策略引擎：
 
 ```json
 {
@@ -137,14 +132,6 @@ description: >-
 - 实施点：**仅在序列化出口与导出出口**执行；不得依赖前端过滤
 
 详见 [security.md](security.md)。
-
-## 何时进入某个分册
-
-- 只是"加一个菜单 + 一个列表接口"：读 backend.md + frontend.md + checklists.md
-- 新增一个业务模块：按索引读 architecture.md → database.md → backend.md → frontend.md → testing.md
-- 做合规/安全审计：读 security.md + checklists.md
-- 准备上线或回滚：读 devops.md + checklists.md
-- 梳理需求：读 product.md
 
 ## 通用反模式（红线）
 
