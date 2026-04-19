@@ -1,3 +1,10 @@
+---
+name: saas-rbac-abac-workflow:devops
+description: >-
+  DevOps 交付物：租户配置模型、特性开关、灰度发布流程、监控告警指标、
+  回滚策略与生产数据访问合规。用于权限系统发布运维。
+---
+
 # DevOps 交付物规范
 
 DevOps 保证权限 / 租户变更**可灰度、可观测、可回滚**。

@@ -1,14 +1,9 @@
 ---
 name: saas-rbac-abac-workflow
 description: >-
-  End-to-end role-based workflow for building B2B SaaS multi-tenant systems with
-  full RBAC and lightweight ABAC on ASP.NET Core + Vue 3 + TypeScript. Covers
-  architect, DBA, backend, frontend, security, test, DevOps, and PM
-  deliverables across requirement, development, review, testing, release, and
-  operations phases. Use when the user works on multi-tenant SaaS permission
-  design, RBAC/ABAC implementation, tenant isolation, field-level security,
-  permission matrix testing, gray release, or mentions 多租户, 租户隔离, 权限矩阵,
-  RBAC, ABAC, 字段脱敏, 越权, 灰度发布.
+  B2B SaaS 多租户 RBAC + ABAC 全流程规范（ASP.NET Core + Vue 3）。
+  涵盖架构/DBA/后端/前端/安全/测试/DevOps/PM 八角色交付物。
+  触发词：多租户, 租户隔离, 权限矩阵, RBAC, ABAC, 字段脱敏, 越权, 灰度发布, 数据范围, 权限码.
 ---
 
 # SaaS 多租户 RBAC + 轻量 ABAC 全流程规范
@@ -185,3 +180,9 @@ description: >-
 - [devops.md](devops.md) — DevOps：租户配置、灰度、回滚、监控
 - [product.md](product.md) — PM：需求模板、权限矩阵草案、验收标准
 - [checklists.md](checklists.md) — 各阶段合并门禁清单
+
+## 用户需求
+
+以下是用户提供的需求或上下文，请据此判断应进入哪个分册并执行对应规范：
+
+$ARGUMENTS

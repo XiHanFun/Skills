@@ -1,3 +1,10 @@
+---
+name: saas-rbac-abac-workflow:backend
+description: >-
+  后端交付物：租户上下文、权限中间件、数据范围过滤器、ABAC 策略处理器、
+  FLS 序列化管道与审计钩子。用于 ASP.NET Core 权限实现。
+---
+
 # 后端开发交付物规范（ASP.NET Core）
 
 后端是 RBAC + ABAC 的执行中枢。所有权限判定必须在后端完成，前端仅负责"渲染与体验"。

@@ -1,3 +1,10 @@
+---
+name: saas-rbac-abac-workflow:frontend
+description: >-
+  前端交付物：路由守卫、v-perm 指令、数据范围联动、FLS 展示约定与
+  401/403 统一处理。用于 Vue 3 + TypeScript 权限前端实现。
+---
+
 # 前端开发交付物规范（Vue 3 + TypeScript）
 
 前端**不做真授权**，只做"UI 可见性 + 体验"。所有数据与敏感判断最终以后端为准。

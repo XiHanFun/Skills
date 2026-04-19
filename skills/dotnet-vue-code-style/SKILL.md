@@ -1,10 +1,8 @@
 ---
 name: dotnet-vue-code-style
 description: >-
-  Aligns C#/.NET and Vue/TypeScript formatting with EditorConfig and Prettier
-  conventions typical of full-stack solutions. Use when formatting code,
-  configuring linters, resolving style conflicts, or standardizing indentation
-  and line endings across backend and frontend.
+  .NET + Vue 全栈代码风格规范：EditorConfig、Prettier、缩进、命名约定与冲突处理。
+  触发词：代码风格, 格式化, EditorConfig, Prettier, 缩进, 命名规范, lint 冲突.
 ---
 
 # .NET 与 Vue 代码格式（全局约定）
@@ -37,3 +35,14 @@ description: >-
 ## 何时查阅
 
 - 新增子项目、合并多仓库风格、或 CI 报 format 失败时，先对齐上述层级再改业务代码。
+
+## 相关 skill
+
+- `/dotnet-vue-fullstack-dev` — 全栈开发指南
+- `/dotnet-vue-build-quality` — 构建与质量门禁（含 format 脚本）
+
+## 用户需求
+
+以下是用户提供的代码或风格问题，请按上述规范给出建议：
+
+$ARGUMENTS

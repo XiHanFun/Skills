@@ -1,11 +1,8 @@
 ---
 name: requirement-driven-iterative-change
 description: >-
-  Decomposes user requests into numbered requirement items after reading the
-  codebase, implements changes one item at a time with traceability, rollback
-  points, and per-item verification. Use when the user wants structured delivery,
-  phased implementation, reversible edits, explicit requirement checklists, or
-  when the user writes in Chinese: 需求项、分步改、可追溯、可回滚、可验证.
+  需求驱动分步改代码：先拆需求项，按项实现，每项可追溯、可回滚、可验证。
+  触发词：需求项, 分步改, 可追溯, 可回滚, 可验证, REQ, 需求拆分, 迭代实现.
 ---
 
 # 需求驱动、分步改代码
@@ -88,3 +85,9 @@ description: >-
 - 多条 REQ 混在同一坨 diff 里无法区分。
 - REQ 标完成却没有任何验证步骤。
 - 大块重构不绑定具体 REQ ID。
+
+## 用户需求
+
+以下是用户提供的需求描述，请按上述流程先理解代码、再拆解需求项、再分步实现：
+
+$ARGUMENTS

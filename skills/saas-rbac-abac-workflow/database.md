@@ -1,3 +1,10 @@
+---
+name: saas-rbac-abac-workflow:database
+description: >-
+  DBA 交付物：TenantId 策略、复合索引规范、全局查询过滤器、迁移脚本模板、
+  分库分表路由与审计表归档。用于数据库设计评审与迁移。
+---
+
 # 数据库设计师（DBA）交付物规范
 
 DBA 负责把架构师确定的隔离模式落成具体的表结构、索引、迁移与回滚脚本。

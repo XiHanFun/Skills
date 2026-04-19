@@ -1,10 +1,8 @@
 ---
 name: dotnet-vue-stack-review
 description: >-
-  Structured code review for pull requests touching ASP.NET Core backends and
-  Vue/TypeScript frontends: correctness, security, performance, and contract
-  alignment. Use when reviewing PRs, auditing changes, or before release in a
-  .NET + Vue monorepo or split-repo setup.
+  .NET + Vue 全栈代码审查：正确性、安全性、性能、契约一致性与反馈分级。
+  触发词：代码审查, Code Review, PR 审查, 安全审计, 契约对齐, 代码评审.
 ---
 
 # 全栈代码审查（.NET + Vue）
@@ -44,3 +42,15 @@ description: >-
 3. 业务逻辑正确性  
 4. 性能与可观测性  
 5. 风格与命名（在自动化 format/lint 之后）  
+
+## 相关 skill
+
+- `/dotnet-vue-code-style` — 代码风格与格式化规范
+- `/dotnet-vue-fullstack-dev` — 全栈开发指南
+- `/dotnet-vue-build-quality` — 构建与质量门禁
+
+## 用户需求
+
+以下是用户提供的代码或 PR 变更，请按上述审查框架给出结构化反馈：
+
+$ARGUMENTS

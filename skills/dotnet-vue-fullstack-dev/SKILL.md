@@ -1,10 +1,8 @@
 ---
 name: dotnet-vue-fullstack-dev
 description: >-
-  Guides layered ASP.NET Core APIs with Vue 3 + TypeScript SPAs: contracts,
-  validation, auth boundaries, and UI data flow. Use when designing features,
-  adding endpoints, wiring Pinia/composables, or splitting responsibilities
-  between backend and frontend in a .NET + Vue codebase.
+  .NET API + Vue 3 全栈开发指南：分层架构、契约设计、验证、认证授权与 UI 数据流。
+  触发词：全栈开发, API 设计, Pinia, 状态管理, DTO, 前后端联调, 接口对接.
 ---
 
 # 全栈开发：.NET API + Vue 前端
@@ -36,3 +34,15 @@ description: >-
 ## 文档与配置站点
 
 - 框架级、组件库、业务应用可能分仓库：开发时以 **当前仓库 README 与脚本** 为准，不假设全局路径。
+
+## 相关 skill
+
+- `/dotnet-vue-code-style` — 代码风格与格式化规范
+- `/dotnet-vue-stack-review` — 代码审查清单
+- `/dotnet-vue-build-quality` — 构建与质量门禁
+
+## 用户需求
+
+以下是用户提供的功能需求或开发问题，请按上述规范给出设计与实现建议：
+
+$ARGUMENTS

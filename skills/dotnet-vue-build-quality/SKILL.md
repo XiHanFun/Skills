@@ -1,9 +1,8 @@
 ---
 name: dotnet-vue-build-quality
 description: >-
-  Runs and interprets builds, tests, lint, and type-check for .NET solutions
-  alongside pnpm/npm Vue workspaces. Use when setting up CI, fixing broken
-  builds, adding quality gates, or releasing a full-stack .NET + Vue project.
+  .NET + Vue 构建与质量门禁：编译、测试、lint、类型检查与 CI 流水线排查。
+  触发词：构建失败, CI, 质量门禁, dotnet build, pnpm build, 类型检查, 发布.
 ---
 
 # 构建与质量门禁（.NET + Vue）
@@ -40,3 +39,15 @@ description: >-
 - [ ] 生产构建无错误与未处理警告（按团队策略）  
 - [ ] 关键路径有自动化测试或手动清单  
 - [ ] 配置与密钥未进入仓库  
+
+## 相关 skill
+
+- `/dotnet-vue-code-style` — 代码风格与格式化规范
+- `/dotnet-vue-fullstack-dev` — 全栈开发指南
+- `/dotnet-vue-stack-review` — 代码审查清单
+
+## 用户需求
+
+以下是用户提供的构建问题或质量需求，请按上述规范诊断并给出方案：
+
+$ARGUMENTS
